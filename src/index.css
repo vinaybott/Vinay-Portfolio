@@ -1,0 +1,273 @@
+/* ══════════════════════════════════════════════════════════
+   VINAY PORTFOLIO — Design System
+   Dark Futuristic Theme — Royal Blue Gradients
+   ══════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* ── Background — Deep Dark ────────────────── */
+  --bg-primary: #050a19;
+  --bg-secondary: #080f23;
+  --bg-tertiary: #0c1632;
+  --bg-card: rgba(12, 22, 50, 0.4);
+
+  /* ── 30% Secondary — Royal Blue ─────────────── */
+  --royal-blue: #2563EB;
+  --royal-blue-light: #60A5FA;
+  --royal-blue-mid: #3B82F6;
+  --royal-blue-dark: #1D4ED8;
+  --royal-blue-deep: #1E3A8A;
+  --royal-blue-glow: rgba(37, 99, 235, 0.35);
+  --royal-blue-subtle: rgba(37, 99, 235, 0.1);
+  --royal-blue-tint: rgba(37, 99, 235, 0.12);
+
+  /* ── 10% Accent — White & Bright ────────────── */
+  --white: #ffffff;
+  --white-90: rgba(255, 255, 255, 0.9);
+  --white-70: rgba(255, 255, 255, 0.7);
+  --black: #000000;
+
+  /* ── Text Colors — Light on dark ───────────── */
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.75);
+  --text-muted: rgba(255, 255, 255, 0.5);
+  --text-light: rgba(255, 255, 255, 0.4);
+
+  /* ── Glass — Dark theme glass ──────────────── */
+  --glass-bg: rgba(15, 25, 60, 0.2);
+  --glass-border: rgba(40, 80, 255, 0.15);
+  --glass-hover: rgba(255, 255, 255, 0.1);
+  --glass-blur: 20px;
+
+  /* ── Typography ─────────────────────────────── */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-lg: 1.125rem;
+  --font-xl: 1.25rem;
+  --font-2xl: 1.5rem;
+  --font-3xl: 1.875rem;
+  --font-4xl: 2.25rem;
+  --font-5xl: 3rem;
+  --font-6xl: 3.75rem;
+  --font-7xl: 4.5rem;
+  --font-8xl: 6rem;
+  --font-9xl: 8rem;
+
+  /* ── Spacing ────────────────────────────────── */
+  --section-padding: clamp(80px, 12vh, 160px);
+  --container-width: 1200px;
+  --container-padding: clamp(20px, 5vw, 80px);
+
+  /* ── Transitions ────────────────────────────── */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Z-index ────────────────────────────────── */
+  --z-cursor: 9999;
+  --z-nav: 1000;
+  --z-overlay: 500;
+  --z-content: 10;
+}
+
+/* ── Reset ────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: none;
+}
+
+button {
+  cursor: none;
+  border: none;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+input, textarea {
+  font-family: inherit;
+  cursor: none;
+}
+
+::selection {
+  background: rgba(43, 93, 219, 0.4);
+  color: var(--white);
+}
+
+/* ── Scrollbar ────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--royal-blue-light);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--royal-blue);
+}
+
+/* ── Utility classes ──────────────────────────── */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.section {
+  padding: var(--section-padding) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Global soft vertical gradient transition between sections */
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 15vh;
+  background: linear-gradient(to bottom, var(--bg-primary) 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 15vh;
+  background: linear-gradient(to top, var(--bg-primary) 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.section-canvas-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 150px, black calc(100% - 150px), transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 150px, black calc(100% - 150px), transparent 100%);
+}
+
+.section-glass-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(60px);
+  background: rgba(5, 10, 25, 0.35);
+  pointer-events: none;
+}
+
+.section-label {
+  font-size: var(--font-xs);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--royal-blue-light);
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: clamp(var(--font-4xl), 5vw, var(--font-7xl));
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: clamp(var(--font-base), 1.5vw, var(--font-lg));
+  color: var(--text-muted);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* ── Glass card ───────────────────────────────── */
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  transition: all var(--transition-base);
+}
+
+.glass-card:hover {
+  background: var(--glass-hover);
+  border-color: rgba(43, 93, 219, 0.2);
+  transform: translateY(-4px);
+}
+
+/* ── Mobile cursor restore ────────────────────── */
+@media (max-width: 768px) {
+  body, a, button, input, textarea {
+    cursor: auto;
+  }
+}
+
+/* ── Reduced motion ───────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

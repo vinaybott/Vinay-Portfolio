@@ -1,0 +1,27 @@
+/* ══════════════════════════════════════════════════════════
+   Gradient Blobs — Vivid Futuristic Background Layer
+   ══════════════════════════════════════════════════════════ */
+
+.gradient-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  /* Dark base so blobs glow against darkness */
+  background: radial-gradient(
+    ellipse 120% 100% at 50% 50%,
+    #0a0a1e 0%,
+    #050510 100%
+  );
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  /* Less blur = more visible blobs, still soft edges */
+  filter: blur(60px);
+  will-change: transform;
+  transform-origin: center;
+  mix-blend-mode: screen;
+}

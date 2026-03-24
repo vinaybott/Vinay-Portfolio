@@ -1,0 +1,166 @@
+/* ══════════════════════════════════════════════════════════
+   Hero — Full-Screen Video BG + Small Glass Card
+   ══════════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 0 var(--container-padding) 80px;
+}
+
+/* ── Full-screen video background ───────────── */
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-video-dim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    var(--bg-primary) 0%,
+    rgba(5, 10, 25, 0.9) 10%,
+    rgba(5, 10, 25, 0.3) 30%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Background watermark ───────────────────── */
+.hero-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(15vw, 22vw, 25vw);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--white);
+  opacity: 0.05;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+  z-index: 2;
+}
+
+/* ── Small glass card (bottom-left) ─────────── */
+.hero-glass-card {
+  position: relative;
+  z-index: 5;
+  max-width: 480px;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-radius: 24px;
+  overflow: hidden;
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Gradient border */
+.hero-glass-card-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1.5px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-card-label {
+  display: inline-block;
+  font-size: var(--font-xs);
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 0.75rem;
+}
+
+.hero-card-title {
+  font-size: clamp(var(--font-2xl), 3.5vw, var(--font-5xl));
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-card-sub {
+  font-size: clamp(var(--font-xs), 1.1vw, var(--font-sm));
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  max-width: 400px;
+}
+
+/* ── Scroll indicator ───────────────────────── */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--font-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  z-index: 5;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent);
+  animation: scroll-pulse 2s ease-in-out infinite;
+}
+
+@keyframes scroll-pulse {
+  0%, 100% { opacity: 1; transform: scaleY(1); }
+  50% { opacity: 0.3; transform: scaleY(0.5); transform-origin: top; }
+}
+
+/* ── Mobile ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 20px 60px;
+    align-items: flex-end;
+  }
+  .hero-glass-card {
+    max-width: 100%;
+    border-radius: 20px;
+  }
+  .scroll-indicator {
+    bottom: 12px;
+  }
+}

@@ -1,0 +1,122 @@
+.ihb-btn {
+  position: relative;
+  overflow: hidden;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 24px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.ihb-btn.full-width {
+  width: 100%;
+}
+
+.ihb-btn.large {
+  padding: 14px 24px;
+  font-size: 15px;
+}
+
+.ihb-btn.active {
+  border-color: #2563EB;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+}
+
+.ihb-btn.is-success {
+  border-color: #16a34a;
+  box-shadow: 0 0 12px rgba(22, 163, 74, 0.4);
+}
+
+/* Base text */
+.ihb-text-primary {
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+  display: inline-block;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Hover text with arrow */
+.ihb-text-hover {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  left: 0;
+  transform: translateX(-120%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.ihb-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Expanding Blob */
+.ihb-blob {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2563EB;
+  left: 20%;
+  top: 40%;
+  z-index: 0;
+  transition: all 0.4s cubic-bezier(0.25, 1.2, 0.5, 1);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.ihb-blob.success {
+  background: #16a34a;
+}
+
+/* HOVER STATES */
+.ihb-btn:hover .ihb-blob {
+  width: 200%;
+  height: 500%;
+  left: 50%;
+  top: 50%;
+  border-radius: 999px;
+  opacity: 1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ihb-btn:hover {
+  border-color: transparent;
+}
+
+.ihb-btn:hover .ihb-text-primary {
+  transform: translateX(120%);
+  opacity: 0;
+}
+
+.ihb-btn:hover .ihb-text-hover {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Pulse arrow on hover */
+.ihb-btn:hover .ihb-arrow {
+  animation: arrowPulse 1.5s infinite;
+}
+
+@keyframes arrowPulse {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
