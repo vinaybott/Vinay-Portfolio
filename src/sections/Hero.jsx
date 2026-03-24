@@ -36,7 +36,7 @@ export default function Hero() {
       {/* Highly optimized, hardware-accelerated video background */}
       <video
         className="hero-video-bg"
-        src="/hero.mp4"
+        src={`${import.meta.env.BASE_URL}hero.mp4`}
         autoPlay
         loop
         muted

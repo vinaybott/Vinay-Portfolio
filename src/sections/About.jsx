@@ -194,7 +194,7 @@ export default function About() {
         <div className="about-photo-section">
           <div className="about-photo-card" ref={photoRef}>
             <div className="about-photo-glass-border" />
-            <img src="/my-pic.png" alt="Vinay" className="about-photo-img" />
+            <img src={`${import.meta.env.BASE_URL}my-pic.png`} alt="Vinay" className="about-photo-img" />
             <div className="about-photo-info">
               <h3>Vinay</h3>
               <span>AI Video Editor</span>
@@ -208,7 +208,7 @@ export default function About() {
                 ref={(el) => (avatarRefs.current[i] = el)}
                 onClick={() => card.link && window.open(card.link, '_blank', 'noopener,noreferrer')}
               >
-                <img src={`/images/${card.img}`} alt={card.title} className="avatar-img" />
+                <img src={`${import.meta.env.BASE_URL}images/${card.img}`} alt={card.title} className="avatar-img" />
                 <div className="avatar-overlay">
                   <div className="avatar-content">
                     <div className="avatar-label">

@@ -190,7 +190,7 @@ export default function Work() {
           
           <div className="video-modal-content" ref={modalContentRef}>
             <video 
-              src={selectedProject.video} 
+              src={`${import.meta.env.BASE_URL}${selectedProject.video.replace(/^\//, '')}`} 
               autoPlay 
               loop 
               muted={false} 
@@ -240,7 +240,7 @@ export default function Work() {
               {project.video ? (
                 <video
                   className="work-card-video"
-                  src={project.video}
+                  src={`${import.meta.env.BASE_URL}${project.video.replace(/^\//, '')}`}
                   autoPlay
                   loop
                   muted
