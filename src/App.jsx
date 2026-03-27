@@ -5,6 +5,7 @@ import Hero from './sections/Hero'
 import About from './sections/About'
 import Services from './sections/Services'
 import Work from './sections/Work'
+import Skills from './sections/Skills'
 import Experience from './sections/Experience'
 import Contact from './sections/Contact'
 import './App.css'
@@ -36,6 +37,8 @@ export default function App() {
         <About />
         <div className="section-divider" />
         <Services />
+        <div className="section-divider" />
+        <Skills />
         <div className="section-divider" />
         <Work />
         <div className="section-divider" />

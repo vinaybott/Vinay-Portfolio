@@ -19,22 +19,41 @@ const AVATAR_CARDS = [
     img: '1.png',
     label: 'EDUCATION',
     title: 'IIITDM Kancheepuram',
-    desc: 'B.Tech in Computer Science & Engineering — Indian Institute of Information Technology, Design and Manufacturing, Kancheepuram.'
+    desc: '2025 Graduate — B.Tech in Computer Science & Engineering from the Indian Institute of Information Technology, Design and Manufacturing, Kancheepuram. Blending technical knowledge with creative vision.',
+    badgeLabel: 'Education',
+    badgeIcon: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '5px', marginBottom: '1px' }}>
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+        <path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5" />
+      </svg>
+    )
   },
   {
     id: 'about',
     img: '2.png',
-    label: 'WHO I AM',
-    title: 'Video Editor & AI Creative',
-    desc: 'Freelance video editor specializing in AI-generated content, brand films, product ads, and UGC — crafting visual stories that convert and captivate.'
+    label: 'AI VIDEO EDITOR',
+    title: 'AI-Powered Creator',
+    desc: 'I create UGC ads, product advertisements, and brand content using AI tools — transforming ideas into scroll-stopping visuals that drive engagement and conversions.',
+    badgeLabel: 'Creative',
+    badgeIcon: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '5px', marginBottom: '1px' }}>
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+      </svg>
+    )
   },
   {
     id: 'social',
     img: '3.png',
-    label: 'SOCIAL',
+    label: 'INSTAGRAM',
     title: '13K+ Instagram Followers',
-    desc: "Follow my editing journey — behind-the-scenes reels, AI creative experiments, and motion work that's growing an engaged visual community.",
+    desc: 'A music page built on storytelling edits — AI-crafted reels and creative experiments that grew an engaged community of 13K+ followers. @mrvny_',
     link: 'https://www.instagram.com/mrvny_/',
+    badgeLabel: 'Instagram',
+    badgeIcon: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '5px', marginBottom: '1px' }}>
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+      </svg>
+    ),
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '6px', marginBottom: '2px' }}>
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
@@ -48,11 +67,17 @@ export default function About() {
   const photoRef = useRef(null)
   const headingRef = useRef(null)
   const avatarRefs = useRef([])
+  const activeCardRef = useRef(null)
 
   useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window
+
     // Scroll-based blur on background images
     const avatars = avatarRefs.current.filter(Boolean)
     avatars.forEach((avatar) => {
+      const img = avatar.querySelector('.avatar-img')
+      if (img) img.style.willChange = 'transform'
+
       // Start blurred, become clear on scroll into view
       gsap.set(avatar, { filter: 'blur(8px)', opacity: 0.5 })
 
@@ -72,8 +97,8 @@ export default function About() {
       })
     })
 
-    // Hover effect — GSAP Timeline sequences
-    avatars.forEach((avatar) => {
+    // Hover/Click expansion — GSAP Timeline sequences
+    avatars.forEach((avatar, idx) => {
       const img = avatar.querySelector('.avatar-img')
       const overlay = avatar.querySelector('.avatar-overlay')
       const content = avatar.querySelector('.avatar-content')
@@ -84,20 +109,22 @@ export default function About() {
 
       let tlIn, tlOut
 
-      const onEnter = () => {
+      const expandCard = () => {
         if (tlOut) tlOut.kill()
         
         // Clear background scroll blur
         gsap.to(avatar, { filter: 'blur(0px)', opacity: 1, duration: 0.4 })
         
+        const expandWidth = isMobile ? '92%' : 420
+        
         tlIn = gsap.timeline()
-        tlIn.to(avatar, { width: 420, duration: 0.55, ease: 'power3.out' }, 0)
+        tlIn.to(avatar, { width: expandWidth, duration: 0.55, ease: 'power3.out' }, 0)
         tlIn.to(img, { scale: 1.08, duration: 0.55, ease: 'power3.out' }, 0)
         tlIn.to(overlay, { backgroundColor: 'rgba(5, 8, 20, 0.72)', backdropFilter: 'blur(12px)', duration: 0.45 }, 0)
-        tlIn.to(content, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' }, 0.2)
+        tlIn.to(content, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, 0.1)
       }
 
-      const onLeave = () => {
+      const collapseCard = () => {
         if (tlIn) tlIn.kill()
 
         // Restore scroll blur
@@ -108,15 +135,31 @@ export default function About() {
           gsap.to(avatar, { filter: `blur(${blur}px)`, opacity, duration: 0.4 })
         }
 
+        const collapseWidth = isMobile ? '100%' : 200
+
         tlOut = gsap.timeline()
         tlOut.to(content, { opacity: 0, y: 16, duration: 0.25, ease: 'power2.in' })
         tlOut.to(overlay, { backgroundColor: 'rgba(5, 8, 20, 0.0)', backdropFilter: 'blur(0px)', duration: 0.3 })
         tlOut.to(img, { scale: 1.0, duration: 0.5, ease: 'power3.out' }, '-=0.1')
-        tlOut.to(avatar, { width: 200, duration: 0.5, ease: 'power3.out' }, '<')
+        tlOut.to(avatar, { width: collapseWidth, duration: 0.5, ease: 'power3.out' }, '<')
       }
 
-      avatar.addEventListener('mouseenter', onEnter)
-      avatar.addEventListener('mouseleave', onLeave)
+      if (isMobile) {
+        // Mobile: auto-reveal on scroll, one by one
+        ScrollTrigger.create({
+          trigger: avatar,
+          start: 'top 75%',
+          end: 'bottom 25%',
+          onEnter: () => expandCard(),
+          onLeave: () => collapseCard(),
+          onEnterBack: () => expandCard(),
+          onLeaveBack: () => collapseCard(),
+        })
+      } else {
+        // Desktop: hover
+        avatar.addEventListener('mouseenter', expandCard)
+        avatar.addEventListener('mouseleave', collapseCard)
+      }
     })
 
     // Reveal animations
@@ -202,22 +245,38 @@ export default function About() {
           </div>
           <div className="about-avatar-gallery">
             {AVATAR_CARDS.map((card, i) => (
-              <div
-                className="avatar-item"
-                key={card.id}
-                ref={(el) => (avatarRefs.current[i] = el)}
-                onClick={() => card.link && window.open(card.link, '_blank', 'noopener,noreferrer')}
-              >
-                <img src={`${import.meta.env.BASE_URL}images/${card.img}`} alt={card.title} className="avatar-img" />
-                <div className="avatar-overlay">
-                  <div className="avatar-content">
-                    <div className="avatar-label">
-                      {card.icon}{card.label}
+              <div className="avatar-wrapper" key={card.id}>
+                <div
+                  className="avatar-item"
+                  ref={(el) => (avatarRefs.current[i] = el)}
+                >
+                  <img src={`${import.meta.env.BASE_URL}images/${card.img}`} alt={card.title} className="avatar-img" />
+                  <div className="avatar-overlay">
+                    <div className="avatar-content">
+                      <div className="avatar-label">
+                        {card.icon}{card.label}
+                      </div>
+                      <h4 className="avatar-title">{card.title}</h4>
+                      <p className="avatar-desc">{card.desc}</p>
+                      {card.link && (
+                        <a
+                          href={card.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="avatar-link-btn"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          Visit →
+                        </a>
+                      )}
                     </div>
-                    <h4 className="avatar-title">{card.title}</h4>
-                    <p className="avatar-desc">{card.desc}</p>
                   </div>
                 </div>
+                {card.badgeLabel && (
+                  <div className="avatar-badge">
+                    {card.badgeIcon}{card.badgeLabel}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -236,7 +295,8 @@ export default function About() {
               <span className="about-heading-word" style={{ display: 'inline-block' }}>content</span>
             </h2>
             <p>
-              I'm Vinay — an <span className="highlight-text">AI Video Editor</span> and
+              I'm Vinay — a graduate of the <span className="highlight-text">Indian Institute of Information Technology, Design and Manufacturing, Kancheepuram (IIITDM)</span> and
+              an <span className="highlight-text">AI Video Editor</span> &
               creative storyteller who bridges the gap between cutting-edge AI technology
               and compelling visual narratives.
             </p>
