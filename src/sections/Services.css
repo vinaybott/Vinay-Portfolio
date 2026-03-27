@@ -26,6 +26,8 @@
   transition: all var(--transition-slow);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card::before {
@@ -93,6 +95,7 @@
   font-size: var(--font-sm);
   color: var(--text-muted);
   line-height: 1.7;
+  flex-grow: 1;
 }
 
 /* Arrow indicator */

@@ -97,20 +97,27 @@ export default function About() {
       })
     })
 
-    // Hover/Click expansion — GSAP Timeline sequences
+    // Store collapse functions for exclusive mobile behavior
+    const collapseAll = []
+
     avatars.forEach((avatar, idx) => {
       const img = avatar.querySelector('.avatar-img')
       const overlay = avatar.querySelector('.avatar-overlay')
       const content = avatar.querySelector('.avatar-content')
 
       gsap.set(img, { scale: 1.0 })
-      gsap.set(overlay, { backgroundColor: 'rgba(5, 8, 20, 0.0)', backdropFilter: 'blur(0px)' })
-      gsap.set(content, { opacity: 0, y: 20 })
+      gsap.set(overlay, { backgroundColor: 'rgba(5, 8, 20, 0.0)', backdropFilter: 'blur(0px)', pointerEvents: 'none' })
+      gsap.set(content, { opacity: 0, y: 20, pointerEvents: 'none' })
 
       let tlIn, tlOut
 
       const expandCard = () => {
         if (tlOut) tlOut.kill()
+        
+        // On mobile: collapse all OTHER cards first
+        if (isMobile) {
+          collapseAll.forEach((fn, i) => { if (i !== idx) fn() })
+        }
         
         // Clear background scroll blur
         gsap.to(avatar, { filter: 'blur(0px)', opacity: 1, duration: 0.4 })
@@ -120,8 +127,8 @@ export default function About() {
         tlIn = gsap.timeline()
         tlIn.to(avatar, { width: expandWidth, duration: 0.55, ease: 'power3.out' }, 0)
         tlIn.to(img, { scale: 1.08, duration: 0.55, ease: 'power3.out' }, 0)
-        tlIn.to(overlay, { backgroundColor: 'rgba(5, 8, 20, 0.72)', backdropFilter: 'blur(12px)', duration: 0.45 }, 0)
-        tlIn.to(content, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, 0.1)
+        tlIn.to(overlay, { backgroundColor: 'rgba(5, 8, 20, 0.72)', backdropFilter: 'blur(12px)', pointerEvents: 'auto', duration: 0.45 }, 0)
+        tlIn.to(content, { opacity: 1, y: 0, pointerEvents: 'auto', duration: 0.4, ease: 'power2.out' }, 0.1)
       }
 
       const collapseCard = () => {
@@ -138,18 +145,21 @@ export default function About() {
         const collapseWidth = isMobile ? '100%' : 200
 
         tlOut = gsap.timeline()
-        tlOut.to(content, { opacity: 0, y: 16, duration: 0.25, ease: 'power2.in' })
-        tlOut.to(overlay, { backgroundColor: 'rgba(5, 8, 20, 0.0)', backdropFilter: 'blur(0px)', duration: 0.3 })
+        tlOut.to(content, { opacity: 0, y: 16, pointerEvents: 'none', duration: 0.25, ease: 'power2.in' })
+        tlOut.to(overlay, { backgroundColor: 'rgba(5, 8, 20, 0.0)', backdropFilter: 'blur(0px)', pointerEvents: 'none', duration: 0.3 })
         tlOut.to(img, { scale: 1.0, duration: 0.5, ease: 'power3.out' }, '-=0.1')
         tlOut.to(avatar, { width: collapseWidth, duration: 0.5, ease: 'power3.out' }, '<')
       }
 
+      // Store collapse function for exclusive behavior
+      collapseAll.push(collapseCard)
+
       if (isMobile) {
-        // Mobile: auto-reveal on scroll, one by one
+        // Mobile: only expand when card is centered in viewport
         ScrollTrigger.create({
           trigger: avatar,
-          start: 'top 75%',
-          end: 'bottom 25%',
+          start: 'top 55%',
+          end: 'top 20%',
           onEnter: () => expandCard(),
           onLeave: () => collapseCard(),
           onEnterBack: () => expandCard(),
